@@ -1,5 +1,12 @@
 import React from 'react';
-import { Crud, CrudCreate, CrudEditPage, CrudIndex } from '~/ui/crud';
+import {
+  Crud,
+  CrudCreate,
+  CrudEdit,
+  CrudEditView,
+  CrudIndex,
+  CrudIndexList,
+} from '~/ui/crud/components';
 
 export const PageCrud: React.FC = () => (
   <Crud
@@ -8,27 +15,37 @@ export const PageCrud: React.FC = () => (
         title={'Hello lol'}
         afterTitle={'asd'}
         filters={(
-          <div>
+          <div style={{ border: '10px solid red' }}>
             FILTERS
           </div>
         )}
-        list={(
-          <div>
-            LIST
-          </div>
-        )}
-      />
+      >
+        {/*<div style={{ border: '10px solid green' }}>*/}
+          <CrudIndexList
+            columns={[
+              {
+                field: 'name',
+                flex: 1,
+              },
+              {
+                field: 'title',
+                flex: 1,
+              },
+            ]}
+          />
+        {/*</div>*/}
+      </CrudIndex>
     )}
     edit={(
-      <CrudEditPage title={'Edit jke'} asyncData={1}>
-        <div>
-          EEEEEDIT
+      <CrudEdit title={'Edit'} asyncData={1}>
+        <div style={{ border: '10px solid black' }}>
+          <CrudEditView/>
         </div>
-      </CrudEditPage>
+      </CrudEdit>
     )}
     create={(
       <CrudCreate title={'Create kek'}>
-        <div>
+        <div style={{ border: '10px solid blue' }}>
           CREATOR
         </div>
       </CrudCreate>

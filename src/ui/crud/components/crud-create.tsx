@@ -16,7 +16,7 @@ export const CrudCreate: React.FC<React.PropsWithChildren<CrudCreateProps>> = (p
   const handleBackClick = useCallback(() => navigate('..'), []);
 
   return (
-    <Box py={3}>
+    <Box p={3}>
       <Stack spacing={3}>
         <Stack
           direction={'row'}

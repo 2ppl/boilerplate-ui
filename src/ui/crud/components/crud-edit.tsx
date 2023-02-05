@@ -7,12 +7,12 @@ import {
   Typography,
 } from '@mui/material';
 
-export type CrudEditPageProps = {
+export type CrudEditProps = {
   title: string;
   asyncData: any;
 };
 
-export const CrudEditPage: React.FC<React.PropsWithChildren<CrudEditPageProps>> = (props) => {
+export const CrudEdit: React.FC<React.PropsWithChildren<CrudEditProps>> = (props) => {
   const navigate = useNavigate();
   const handleBackClick = useCallback(() => navigate('..'), []);
 
@@ -21,7 +21,7 @@ export const CrudEditPage: React.FC<React.PropsWithChildren<CrudEditPageProps>> 
   }
 
   return (
-    <Box py={3}>
+    <Box p={3}>
       <Stack spacing={3}>
         <Stack
           direction={'row'}

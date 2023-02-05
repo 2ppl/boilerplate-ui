@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { FC, PropsWithChildren, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -14,12 +14,12 @@ export type CrudIndexProps = {
   list?: JSX.Element;
 };
 
-export const CrudIndex: React.FC<CrudIndexProps> = (props) => {
+export const CrudIndex: FC<PropsWithChildren<CrudIndexProps>> = (props) => {
   const navigate = useNavigate();
   const handleCreateClick = useCallback(() => navigate('create'), []);
 
   return (
-    <Box py={3}>
+    <Box p={3}>
       <Stack spacing={3}>
         <Stack
           direction={'row'}
@@ -55,11 +55,7 @@ export const CrudIndex: React.FC<CrudIndexProps> = (props) => {
             {props.filters}
           </div>
         )}
-        {props.list && (
-          <div>
-            {props.list}
-          </div>
-        )}
+        {props.children}
       </Stack>
     </Box>
   );
